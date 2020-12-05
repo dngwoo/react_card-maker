@@ -1,4 +1,5 @@
 import firebase from "firebase";
+import firebaseApp from "./firebase";
 
 class AuthService {
   login(providerName) {
@@ -6,7 +7,8 @@ class AuthService {
 
     // 예제) https://firebase.google.com/docs/auth/web/github-auth?authuser=0
     const authProvider = new firebase.auth[`${providerName}AuthProvider`]();
-    return firebase
+    // configure이 들어간 firebase를 활용하여 인증하게 된다.
+    return firebaseApp
       .auth()
       .signInWithPopup(authProvider)
       .then((result) => {
