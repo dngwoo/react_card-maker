@@ -5,9 +5,11 @@ import styles from "./preview.module.css";
 const Preview = ({ cards }) => (
   <section className={styles.preview}>
     <h1 className={styles.title}>Card review</h1>
-    {cards.map((card) => (
-      <Card card={card} key={card.id} />
-    ))}
+    <ul className={styles.cards}>
+      {cards.map((card) => (
+        <Card card={card} key={card.id} />
+      ))}
+    </ul>
   </section>
 );
 
