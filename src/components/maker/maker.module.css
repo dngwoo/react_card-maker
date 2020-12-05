@@ -1,0 +1,23 @@
+@value mediaQuery from '../../common/size.css';
+
+.maker {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  /* 중간에 모든 여백을 가지게 된다. 
+     flex-grow의 기본값은 0이다.
+     header와 footer의 flex-grow의 값이 0 이므로 container가 여백을 다 가지게 된다.
+  */
+  flex: 1;
+  display: flex;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .container {
+    flex-direction: column;
+  }
+}
