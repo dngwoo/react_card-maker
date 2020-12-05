@@ -55,11 +55,17 @@ const Maker = ({ authService }) => {
       }
     });
   });
+
+  const addCard = (card) => {
+    // 불변성을 유지한다.
+    const updated = [...cards, card];
+    setCards(updated);
+  };
   return (
     <section className={styles.maker}>
       <Header onLogout={onLogout}></Header>
       <div className={styles.container}>
-        <Editor cards={cards} />
+        <Editor cards={cards} addCard={addCard} />
         <Preview cards={cards} />
       </div>
       <Footer></Footer>
