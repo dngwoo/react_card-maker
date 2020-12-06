@@ -6,7 +6,7 @@ import Header from "../header/header";
 import Preview from "../preview/preview";
 import styles from "./maker.module.css";
 
-const Maker = ({ authService }) => {
+const Maker = ({ authService, FileInput }) => {
   const [cards, setCards] = useState({
     1: {
       id: "1",
@@ -16,7 +16,7 @@ const Maker = ({ authService }) => {
       title: "Software Enginner",
       email: "dngwoo@gamil.com",
       message: "go for it",
-      fileName: "dngwoo",
+      fileName: null,
       fileURL: null,
     },
     2: {
@@ -27,7 +27,7 @@ const Maker = ({ authService }) => {
       title: "Software Enginner",
       email: "dngwoo@gamil.com",
       message: "go for it",
-      fileName: "dngwoo",
+      fileName: null,
       fileURL: "dngwoo.png",
     },
     3: {
@@ -38,7 +38,7 @@ const Maker = ({ authService }) => {
       title: "Software Enginner",
       email: "dngwoo@gamil.com",
       message: "go for it",
-      fileName: "dngwoo",
+      fileName: null,
       fileURL: null,
     },
   });
@@ -86,6 +86,7 @@ const Maker = ({ authService }) => {
           addCard={createOrUpdateCard}
           updateCard={createOrUpdateCard}
           deleteCard={deleteCard}
+          FileInput={FileInput}
         />
         <Preview cards={cards} />
       </div>

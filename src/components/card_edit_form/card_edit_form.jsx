@@ -1,9 +1,8 @@
 import React from "react";
-import ImageFileInput from "../image_file_input/image_file_input.jsx";
 import Button from "../button/button.jsx";
 import styles from "./card_editor.module.css";
 
-const CardEditForm = ({ card, updateCard, deleteCard }) => {
+const CardEditForm = ({ card, updateCard, deleteCard, FileInput }) => {
   const {
     name,
     company,
@@ -14,6 +13,15 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
     fileName,
     fileURL,
   } = card;
+
+  // onChange처럼 event.currentTarget.value로 파일을 받아올 수 없기 떄문에 따로 함수 만듬
+  const onFileChange = (file) => {
+    updateCard({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url,
+    });
+  };
 
   const onChange = (event) => {
     console.log(event.currentTarget);
@@ -79,7 +87,7 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
         onChange={onChange}
       />
       <div className={styles["file-input"]}>
-        <ImageFileInput />
+        <FileInput onFileChange={onFileChange} name={fileName} />
       </div>
       <Button name="Delete" onClick={onSubmit} />
     </form>
