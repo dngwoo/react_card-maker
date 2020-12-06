@@ -4,13 +4,12 @@ import styles from "./card.module.css";
 const DEFAULT_IMAGE = "/images/default_logo.png";
 const Card = ({ card }) => {
   const {
-    name,
+    name, //
     company,
     title,
     email,
     message,
     theme,
-    fileName,
     fileURL,
   } = card;
   const url = fileURL || DEFAULT_IMAGE;
