@@ -4,14 +4,13 @@ import styles from "./card_editor.module.css";
 
 const CardEditForm = ({ card, updateCard, deleteCard, FileInput }) => {
   const {
-    name,
+    name, //
     company,
     title,
     email,
     message,
     theme,
     fileName,
-    fileURL,
   } = card;
 
   // onChange처럼 event.currentTarget.value로 파일을 받아올 수 없기 떄문에 따로 함수 만듬
